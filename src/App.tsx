@@ -195,12 +195,12 @@ const App: React.FC = () => {
         const cell = specialCells[potentialPlayerPosition];
         if (cell && (cell.type === 'bonus' || cell.type === 'penalty')) {
           const oldSpecialPosition = potentialPlayerPosition;
-          let finalPositionAfterSpecial = potentialPlayerPosition + cell?.move;
+          let finalPositionAfterSpecial = potentialPlayerPosition + cell.move;
 
           if (finalPositionAfterSpecial < 1) finalPositionAfterSpecial = 1;
           if (finalPositionAfterSpecial > 100) finalPositionAfterSpecial = 100;
 
-          showFeedback(`${currentPlayerObj.name} ${cell.type === 'bonus' ? 'avançou' : 'retrocedeu'} ${Math.abs(cell?.move)} casas!`, cell.type);
+          showFeedback(`${currentPlayerObj.name} ${cell.type === 'bonus' ? 'avançou' : 'retrocedeu'} ${Math.abs(cell.move)} casas!`, cell.type);
 
           // Destaca a célula especial brevemente
           setHighlightedCell(oldSpecialPosition);
