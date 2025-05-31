@@ -17,7 +17,7 @@ export interface Player {
 export interface SpecialCell {
   type: 'bonus' | 'penalty' | 'question';
   text: string;
-  move?: number;
+  move: number;
 }
 
 export interface SpecialCells {

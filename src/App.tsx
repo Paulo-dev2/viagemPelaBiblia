@@ -30,17 +30,15 @@ const App: React.FC = () => {
     5: { type: 'bonus', text: '+2', move: 2 },
     12: { type: 'bonus', text: '+3', move: 3 },
     19: { type: 'bonus', text: '+5', move: 5 },
-    25: { type: 'question', text: '?' },
-    32: { type: 'question', text: '?' },
+    25: { type: 'penalty', text: '-3', move: -3 },
+    32: { type: 'bonus', text: '+6', move: +6 },
     38: { type: 'penalty', text: '-3', move: -3 },
     45: { type: 'penalty', text: '-4', move: -4 },
-    53: { type: 'question', text: '?' },
     59: { type: 'penalty', text: '-2', move: -2 },
     66: { type: 'bonus', text: '+4', move: 4 },
-    72: { type: 'question', text: '?' },
     78: { type: 'penalty', text: '-5', move: -5 },
     84: { type: 'bonus', text: '+6', move: 6 },
-    91: { type: 'question', text: '?' },
+    91: { type: 'penalty', text: '-6', move: -6 },
     97: { type: 'penalty', text: '-3', move: -3 }
   };
 
