@@ -1,639 +1,745 @@
 :root {
-  --primary-color: #8e44ad; /* Roxo principal */
-  --secondary-color: #9b59b6; /* Roxo secundário */
-  --dark-color: #2c3e50; /* Azul escuro */
-  --light-color: #ecf0f1; /* Cinza claro */
-  --correct-color: #2ecc71; /* Verde para acertos */
-  --wrong-color: #e74c3c; /* Vermelho para erros */
-  --highlight-color: #f1c40f; /* Amarelo para destaque */
-  --player1-color: #3498db; /* Azul para Jogador 1 */
-  --player2-color: #e74c3c; /* Vermelho para Jogador 2 */
+ --primary-color: #8e44ad; /* Roxo principal */
+--secondary-color: #9b59b6; /* Roxo secundário */
+--dark-color: #2c3e50; /* Azul escuro */
+--light-color: #ecf0f1; /* Cinza claro */
+--correct-color: #2ecc71; /* Verde para acertos */
+--wrong-color: #e74c3c; /* Vermelho para erros */
+--highlight-color: #f1c40f; /* Amarelo para destaque */
+--player1-color: #3498db; /* Azul para Jogador 1 */
+--player2-color: #e74c3c; /* Vermelho para Jogador 2 */
 }
 
 /* Reset básico e estilos globais */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f5f5f5;
-  color: var(--dark-color);
-  line-height: 1.6;
-  display: flex; /* Para centralizar o game-container */
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
-  padding: 1rem; /* Um pouco de padding para telas pequenas */
+font-family: 'Roboto', sans-serif;
+background-color: #f5f5f5;
+color: var(--dark-color);
+line-height: 1.6;
+display: flex; /* Para centralizar o game-container */
+justify-content: center;
+align-items: center;
+min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+padding: 1rem; /* Um pouco de padding para telas pequenas */
 }
 
 .game-container {
-  max-width: 1000px;
-  width: 100%; /* Ocupa a largura total disponível */
-  margin: 0 auto; /* Centraliza horizontalmente */
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+max-width: 1000px;
+width: 100%; /* Ocupa a largura total disponível */
+margin: 0 auto; /* Centraliza horizontalmente */
+background-color: white;
+border-radius: 10px;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+display: flex;
+flex-direction: column;
 }
 
 .game-header {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: white;
-  padding: 2rem;
-  text-align: center;
+background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+color: white;
+padding: 2rem;
+text-align: center;
 }
 
 .game-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+font-family: 'Playfair Display', serif;
+font-size: 2.5rem;
+margin-bottom: 0.5rem;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
 }
 
 .subtitle {
-  font-weight: 300;
-  opacity: 0.9;
+font-weight: 300;
+opacity: 0.9;
 }
 
 /* Telas do jogo */
 .screen {
-  display: none;
-  padding: 2rem;
-  flex-grow: 1; /* Permite que a tela ocupe o espaço disponível */
+display: none;
+padding: 2rem;
+flex-grow: 1; /* Permite que a tela ocupe o espaço disponível */
 }
 
 .screen.active {
-  display: flex; /* Usar flex para melhor controle do layout interno */
-  flex-direction: column;
-  align-items: center; /* Centraliza conteúdo */
-  justify-content: center; /* Centraliza conteúdo verticalmente */
+display: flex; /* Usar flex para melhor controle do layout interno */
+flex-direction: column;
+align-items: center; /* Centraliza conteúdo */
+justify-content: center; /* Centraliza conteúdo verticalmente */
 }
 
 .bible-image {
-  height: 200px;
-  background-image: url('https://placehold.co/500x200/8e44ad/ffffff?text=Viagem+pela+Bíblia'); /* Placeholder image */
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-  width: 100%; /* Ocupa a largura total */
-  max-width: 500px; /* Limite para a imagem */
+height: 200px;
+background-image: url('https://placehold.co/500x200/8e44ad/ffffff?text=Viagem+pela+Bíblia'); /* Placeholder image */
+background-size: cover;
+background-position: center;
+border-radius: 8px;
+margin-bottom: 1.5rem;
+width: 100%; /* Ocupa a largura total */
+max-width: 500px; /* Limite para a imagem */
 }
 
 .start-content {
-  text-align: center;
-  width: 100%;
+text-align: center;
+width: 100%;
 }
 
 .start-content h2 {
-  margin-bottom: 1rem;
-  color: var(--primary-color);
+margin-bottom: 1rem;
+color: var(--primary-color);
 }
 
 .player-setup {
-  margin: 2rem auto;
-  text-align: left;
-  max-width: 400px;
-  width: 100%;
+margin: 2rem auto;
+text-align: left;
+max-width: 400px;
+width: 100%;
 }
 
 .form-group {
-  margin-bottom: 1rem;
+margin-bottom: 1rem;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
+display: block;
+margin-bottom: 0.5rem;
+font-weight: bold;
 }
 
 .form-group input {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
+width: 100%;
+padding: 0.8rem;
+border: 1px solid #ddd;
+border-radius: 5px;
+font-size: 1rem;
 }
 
 .btn {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra para botões */
+background-color: var(--primary-color);
+color: white;
+border: none;
+padding: 0.8rem 1.5rem;
+font-size: 1rem;
+border-radius: 5px;
+cursor: pointer;
+transition: all 0.3s ease;
+margin-top: 1rem;
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra para botões */
 }
 
 .btn:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+background-color: var(--secondary-color);
+transform: translateY(-2px);
+box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
 
 .btn:disabled {
-  background-color: #bdc3c7;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
+background-color: #bdc3c7;
+cursor: not-allowed;
+transform: none;
+box-shadow: none;
 }
 
 /* Tabuleiro do Jogo */
 .game-board-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  width: 100%;
-  max-width: 900px; /* Limite a largura do tabuleiro */
-  margin: 0 auto; /* Centraliza o tabuleiro */
+display: flex;
+flex-direction: column;
+gap: 2rem;
+width: 100%;
+max-width: 900px; /* Limite a largura do tabuleiro */
+margin: 0 auto; /* Centraliza o tabuleiro */
 }
 
 .players-info {
-  display: flex;
-  justify-content: space-around; /* Ajustado para melhor espaçamento */
-  align-items: center;
-  gap: 1rem; /* Reduzido o gap para mobile */
-  flex-wrap: wrap; /* Permite que os elementos quebrem a linha */
+display: flex;
+justify-content: space-around; /* Ajustado para melhor espaçamento */
+align-items: center;
+gap: 1rem; /* Reduzido o gap para mobile */
+flex-wrap: wrap; /* Permite que os elementos quebrem a linha */
 }
 
 .player {
-  padding: 1rem;
-  border-radius: 8px;
-  width: 180px; /* Largura ajustada */
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+padding: 1rem;
+border-radius: 8px;
+width: 180px; /* Largura ajustada */
+text-align: center;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-#player1-info {
-  background-color: rgba(52, 152, 219, 0.1);
-  border: 2px solid var(--player1-color);
-}
-
-#player2-info {
-  background-color: rgba(231, 76, 60, 0.1);
-  border: 2px solid var(--player2-color);
-}
+/* Os IDs '#player1-info' e '#player2-info' não estão mais no HTML, então essas regras podem ser genéricas */
+/* Removidos para usar classes no React */
 
 .player-name {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
+font-weight: bold;
+margin-bottom: 0.5rem;
+font-size: 1.1rem;
 }
 
-#player1-info .player-name {
-  color: var(--player1-color);
+/* Ajustado para usar as cores dinamicamente do React */
+/* #player1-info .player-name {
+color: var(--player1-color);
 }
 
 #player2-info .player-name {
-  color: var(--player2-color);
-}
+color: var(--player2-color);
+} */
 
 .player-position {
-  font-size: 0.9rem;
+font-size: 0.9rem;
 }
 
+/* Player Power-ups */
+.player-powerups {
+    font-size: 0.8em;
+    margin-top: 5px;
+    display: flex;
+    gap: 10px; /* Espaçamento entre os ícones */
+    justify-content: center; /* Centraliza os power-ups */
+}
+
+
 .dice-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  flex-shrink: 0; /* Impede que o dado encolha */
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1rem;
+flex-shrink: 0; /* Impede que o dado encolha */
 }
 
 .dice {
-  width: 70px; /* Aumentado o tamanho do dado */
-  height: 70px;
-  background-color: white;
-  border: 3px solid var(--dark-color);
-  border-radius: 12px; /* Cantos mais arredondados */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem; /* Aumentado o tamanho do número */
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+width: 70px; /* Aumentado o tamanho do dado */
+height: 70px;
+background-color: white;
+border: 3px solid var(--dark-color);
+border-radius: 12px; /* Cantos mais arredondados */
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 2.5rem; /* Aumentado o tamanho do número */
+font-weight: bold;
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .current-player {
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-top: 1rem;
-  background-color: var(--light-color); /* Fundo para o display do jogador atual */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+text-align: center;
+font-size: 1.2rem;
+font-weight: bold;
+padding: 1rem;
+border-radius: 8px;
+margin-top: 1rem;
+background-color: var(--light-color); /* Fundo para o display do jogador atual */
+box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 /* Tabuleiro */
 .game-board {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 5px;
-  margin-top: 2rem;
-  width: 100%;
+display: grid;
+grid-template-columns: repeat(10, 1fr);
+gap: 5px;
+margin-top: 2rem;
+width: 100%;
 }
 
 .cell {
-  aspect-ratio: 1; /* Mantém as células quadradas */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f8f9fa;
-  border-radius: 5px;
-  position: relative; /* Essencial para posicionar os filhos */
-  font-size: 0.8rem;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  border: 1px solid #e0e0e0; /* Borda suave para as células */
-  overflow: hidden; /* Garante que nada saia da célula */
+aspect-ratio: 1; /* Mantém as células quadradas */
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #f8f9fa;
+border-radius: 5px;
+position: relative; /* Essencial para posicionar os filhos */
+font-size: 0.8rem;
+font-weight: bold;
+transition: all 0.3s ease;
+border: 1px solid #e0e0e0; /* Borda suave para as células */
+overflow: hidden; /* Garante que nada saia da célula */
 }
 
 .cell:hover {
-  transform: scale(1.05);
-  z-index: 1;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+transform: scale(1.05);
+z-index: 1;
+box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
 .cell-number {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  font-size: 0.6rem;
-  color: #7f8c8d;
-  z-index: 2; /* Acima do conteúdo extra, abaixo dos tokens */
+position: absolute;
+top: 2px;
+left: 2px;
+font-size: 0.6rem;
+color: #7f8c8d;
+z-index: 2; /* Acima do conteúdo extra, abaixo dos tokens */
 }
 
 /* Estilos para os tokens dos jogadores */
 .player-token {
-  position: absolute;
-  width: 20px; /* Tamanho do token */
-  height: 20px;
-  border-radius: 50%;
-  /* display: none; */ /* Removido para ser controlado apenas pela renderização condicional do React */
-  border: 2px solid white; /* Borda branca para destaque */
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
-  z-index: 3; /* Acima de tudo mais na célula */
-  transition: transform 0.15s ease-in-out; /* Transição para o movimento */
+position: absolute;
+width: 20px; /* Tamanho do token */
+height: 20px;
+border-radius: 50%;
+/* display: none; */ /* Removido para ser controlado apenas pela renderização condicional do React */
+border: 2px solid white; /* Borda branca para destaque */
+box-shadow: 0 0 5px rgba(0,0,0,0.3);
+z-index: 3; /* Acima de tudo mais na célula */
+transition: transform 0.15s ease-in-out; /* Transição para o movimento */
 }
 
 .player1-token {
-  background-color: var(--player1-color);
-  top: 5px; /* Posição do token do jogador 1 */
-  left: 5px;
+background-color: var(--player1-color);
+top: 5px; /* Posição do token do jogador 1 */
+left: 5px;
 }
 
 .player2-token {
-  background-color: var(--player2-color);
-  bottom: 5px; /* Posição do token do jogador 2 */
-  right: 5px;
+background-color: var(--player2-color);
+bottom: 5px; /* Posição do token do jogador 2 */
+right: 5px;
 }
 
 /* .player-token.active { display: block; } */ /* Esta classe não é mais necessária, pois o token é renderizado ou não */
 
 /* Estilo para o conteúdo extra das células (Início, Fim, Bônus/Penalidade, Pergunta) */
 .cell-extra-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.2rem; /* Tamanho padrão para o conteúdo extra */
-  font-weight: bold;
-  color: var(--dark-color); /* Cor padrão */
-  z-index: 1; /* Abaixo dos tokens e números */
-  text-align: center;
-  width: 100%; /* Para centralizar o conteúdo */
-  height: 100%;
-  display: flex; /* Para centralizar ícones */
-  align-items: center;
-  justify-content: center;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-size: 1.2rem; /* Tamanho padrão para o conteúdo extra */
+font-weight: bold;
+color: var(--dark-color); /* Cor padrão */
+z-index: 1; /* Abaixo dos tokens e números */
+text-align: center;
+width: 100%; /* Para centralizar o conteúdo */
+height: 100%;
+display: flex; /* Para centralizar ícones */
+align-items: center;
+justify-content: center;
 }
 
 /* Estilos específicos para o conteúdo de células especiais */
 .cell.start .cell-extra-content {
-  font-size: 1.5rem; /* Tamanho maior para Início */
-  color: white; /* Texto branco para Início */
+font-size: 1.5rem; /* Tamanho maior para Início */
+color: white; /* Texto branco para Início */
 }
 
 .cell.end .cell-extra-content {
-  font-size: 2rem; /* Emoji maior para Fim */
-  color: white; /* Emoji branco para Fim */
+font-size: 2rem; /* Emoji maior para Fim */
+color: white; /* Emoji branco para Fim */
 }
 
 .cell.special .cell-extra-content i.fa-question-circle {
-  font-size: 1.5rem; /* Tamanho do ícone de pergunta */
-  color: var(--dark-color); /* Cor do ícone de pergunta */
+font-size: 1.5rem; /* Tamanho do ícone de pergunta */
+color: var(--dark-color); /* Cor do ícone de pergunta */
 }
 
 .cell.special .cell-extra-content {
-  color: var(--dark-color); /* Cor para o texto de bônus/penalidade */
+color: var(--dark-color); /* Cor para o texto de bônus/penalidade */
 }
 
 /* Destaque para células especiais */
 .cell.highlight-bonus {
-  background-color: var(--correct-color) !important; /* Verde mais brilhante */
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(46, 204, 113, 0.5);
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+background-color: var(--correct-color) !important; /* Verde mais brilhante */
+transform: scale(1.1);
+box-shadow: 0 0 15px rgba(46, 204, 113, 0.5);
+transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cell.highlight-penalty {
-  background-color: var(--wrong-color) !important; /* Vermelho mais brilhante */
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+background-color: var(--wrong-color) !important; /* Vermelho mais brilhante */
+transform: scale(1.1);
+box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 
 /* Tela de Perguntas */
 .question-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  opacity: 0; /* Inicia transparente */
-  visibility: hidden; /* Oculta para não ser interativa */
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.8);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 100;
+opacity: 0; /* Inicia transparente */
+visibility: hidden; /* Oculta para não ser interativa */
+transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .question-screen.active { /* Use 'active' para mostrar, não 'show' */
-  opacity: 1;
-  visibility: visible;
+opacity: 1;
+visibility: visible;
 }
 
 .question-screen.hidden { /* Mantém a classe hidden para ocultar */
-  display: none;
+display: none;
 }
 
 
 .question-container {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 600px;
-  width: 90%;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transform: translateY(-20px); /* Animação de entrada */
-  opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+background-color: white;
+padding: 2rem;
+border-radius: 10px;
+max-width: 600px;
+width: 90%;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+transform: translateY(-20px); /* Animação de entrada */
+opacity: 0;
+transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .question-screen.active .question-container {
-  transform: translateY(0);
-  opacity: 1;
+transform: translateY(0);
+opacity: 1;
 }
 
 .question-header {
-  margin-bottom: 1.5rem;
-  text-align: center;
+margin-bottom: 1.5rem;
+text-align: center;
 }
 
 .question-header h3 {
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-  font-size: 1.8rem;
+color: var(--primary-color);
+margin-bottom: 0.5rem;
+font-size: 1.8rem;
 }
 
 .reference {
-  font-size: 0.9rem;
-  color: #7f8c8d;
-  font-style: italic;
+font-size: 0.9rem;
+color: #7f8c8d;
+font-style: italic;
 }
 
 .question {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-  text-align: center;
+font-size: 1.2rem;
+margin-bottom: 1.5rem;
+font-weight: 500;
+text-align: center;
 }
 
 .options-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+display: grid;
+grid-template-columns: 1fr;
+gap: 1rem;
+margin-bottom: 1.5rem;
 }
 
 .option {
-  background-color: var(--light-color);
-  padding: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+background-color: var(--light-color);
+padding: 1rem;
+border-radius: 5px;
+cursor: pointer;
+transition: all 0.2s ease;
+text-align: center;
+box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .option:hover {
-  background-color: #ddd;
-  transform: translateX(5px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+background-color: #ddd;
+transform: translateX(5px);
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .option.correct {
-  background-color: var(--correct-color);
-  color: white;
-  box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+background-color: var(--correct-color);
+color: white;
+box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
 }
 
 .option.wrong {
-  background-color: var(--wrong-color);
-  color: white;
-  box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+background-color: var(--wrong-color);
+color: white;
+box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
 }
 
+/* Feedback message on game screen and question screen */
 .feedback {
-  margin: 1.5rem 0;
-  padding: 1rem;
-  border-radius: 5px;
-  text-align: center;
-  display: none; /* Controlado por JS */
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .feedback.show {
-  display: block;
-  opacity: 1;
+    opacity: 1;
+    visibility: visible;
 }
 
 .feedback.correct {
-  background-color: rgba(46, 204, 113, 0.2);
-  color: var(--correct-color);
+    background-color: #4CAF50; /* Green */
 }
 
 .feedback.wrong {
-  background-color: rgba(231, 76, 60, 0.2);
-  color: var(--wrong-color);
+    background-color: #f44336; /* Red */
 }
+
+.feedback.bonus {
+    background-color: #2196F3; /* Blue */
+}
+
+.feedback.penalty {
+    background-color: #FF9800; /* Orange */
+}
+
+/* Power-up Buttons */
+.power-up-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%; /* Garante que ocupe a largura do pai */
+    max-width: 200px; /* Limite a largura dos botões */
+}
+
+.power-up-btn {
+    background-color: var(--primary-color); /* Ou uma cor diferente para power-ups */
+    color: var(--text-color-light);
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.power-up-btn:hover:not(:disabled) {
+    background-color: var(--primary-color-dark);
+}
+
+.power-up-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+    box-shadow: none;
+}
+
+/* Specific button for skip question in question screen */
+.skip-question-btn {
+    margin-top: 20px; /* Adjust as needed */
+    background-color: #f0ad4e; /* A warning-like color */
+}
+
+.skip-question-btn:hover:not(:disabled) {
+    background-color: #ec971f;
+}
+
 
 /* Tela Final */
 .end-content {
-  text-align: center;
-  width: 100%;
+text-align: center;
+width: 100%;
 }
 
 .end-content h2 {
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
+color: var(--primary-color);
+margin-bottom: 1.5rem;
+font-size: 2rem;
 }
 
 .winner {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border-radius: 8px;
-  background-color: rgba(46, 204, 113, 0.2);
-  color: var(--correct-color);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+font-size: 1.5rem;
+font-weight: bold;
+margin-bottom: 2rem;
+padding: 1rem;
+border-radius: 8px;
+background-color: rgba(46, 204, 113, 0.2);
+color: var(--correct-color);
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .final-stats {
-  text-align: left;
-  max-width: 500px;
-  margin: 0 auto 2rem;
-  background-color: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+text-align: left;
+max-width: 500px;
+margin: 0 auto 2rem;
+background-color: #f8f9fa;
+padding: 1.5rem;
+border-radius: 8px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .final-stats h3 {
-  text-align: center;
-  margin-bottom: 1rem;
-  color: var(--dark-color);
+text-align: center;
+margin-bottom: 1rem;
+color: var(--dark-color);
 }
 
-.final-stats div {
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  border-radius: 5px;
+.player-stats { /* Renomeado para evitar conflito com IDs no HTML original */
+margin-bottom: 1rem;
+padding: 0.5rem;
+border-radius: 5px;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1); /* Separador para stats de jogador */
+  padding-bottom: 15px;
 }
 
-#player1-stats {
-  background-color: rgba(52, 152, 219, 0.1);
-  border-left: 4px solid var(--player1-color);
+.player-stats:last-child {
+    border-bottom: none; /* Remove a borda do último elemento */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Essas IDs não são mais usadas, as classes 'player-stats' são estilizadas */
+/* #player1-stats {
+background-color: rgba(52, 152, 219, 0.1);
+border-left: 4px solid var(--player1-color);
 }
 
 #player2-stats {
-  background-color: rgba(231, 76, 60, 0.1);
-  border-left: 4px solid var(--player2-color);
+background-color: rgba(231, 76, 60, 0.1);
+border-left: 4px solid var(--player2-color);
+} */
+
+.difficulty-stats {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: var(--dark-color); /* Ajustado para a cor do texto padrão */
+}
+
+.difficulty-stats h4 {
+    margin-bottom: 5px;
+    color: var(--primary-color); /* Uma cor que se destaque */
 }
 
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
-  body {
-      padding: 0; /* Remove padding no body para telas pequenas */
-  }
+body {
+padding: 0; /* Remove padding no body para telas pequenas */
+}
 
-  .game-container {
-      margin: 0;
-      border-radius: 0;
-      min-height: 100vh; /* Ocupa a altura total em mobile */
-  }
-  
-  .game-header {
-      padding: 1.5rem;
-  }
-  
-  .game-header h1 {
-      font-size: 2rem;
-  }
-  
-  .screen {
-      padding: 1rem;
-  }
-  
-  .players-info {
-      flex-direction: column;
-      gap: 1rem;
-  }
-  
-  .player {
-      width: 100%;
-  }
-  
-  .dice-container {
-      margin-top: 1rem;
-  }
+.game-container {
+margin: 0;
+border-radius: 0;
+min-height: 100vh; /* Ocupa a altura total em mobile */
+}
 
-  .game-board {
-      gap: 3px;
-      grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)); /* Ajusta colunas para telas menores */
-  }
-  
-  .cell {
-      font-size: 0.6rem;
-  }
+.game-header {
+padding: 1.5rem;
+}
 
-  .cell-number {
-      font-size: 0.5rem;
-  }
+.game-header h1 {
+font-size: 2rem;
+}
 
-  .player-token {
-      width: 15px;
-      height: 15px;
-  }
+.screen {
+padding: 1rem;
+}
 
-  .player1-token {
-      top: 3px;
-      left: 3px;
-  }
+.players-info {
+flex-direction: column;
+gap: 1rem;
+}
 
-  .player2-token {
-      bottom: 3px;
-      right: 3px;
-  }
+.player {
+width: 100%;
+}
 
-  .cell-extra-content {
-      font-size: 1rem;
-  }
+.dice-container {
+margin-top: 1rem;
+}
 
-  .cell.end .cell-extra-content {
-      font-size: 1.5rem;
-  }
+.game-board {
+gap: 3px;
+grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)); /* Ajusta colunas para telas menores */
+}
 
-  .cell.special .cell-extra-content i.fa-question-circle {
-      font-size: 1.2rem;
-  }
+.cell {
+font-size: 0.6rem;
+}
 
-  .question-container {
-      padding: 1.5rem;
-  }
+.cell-number {
+font-size: 0.5rem;
+}
 
-  .question-header h3 {
-      font-size: 1.5rem;
-  }
+.player-token {
+width: 15px;
+height: 15px;
+}
 
-  .question {
-      font-size: 1rem;
-  }
+.player1-token {
+top: 3px;
+left: 3px;
+}
 
-  .option {
-      padding: 0.8rem;
-      font-size: 0.9rem;
-  }
+.player2-token {
+bottom: 3px;
+right: 3px;
+}
+
+.cell-extra-content {
+font-size: 1rem;
+}
+
+.cell.end .cell-extra-content {
+font-size: 1.5rem;
+}
+
+.cell.special .cell-extra-content i.fa-question-circle {
+font-size: 1.2rem;
+}
+
+.question-container {
+padding: 1.5rem;
+}
+
+.question-header h3 {
+font-size: 1.5rem;
+}
+
+.question {
+font-size: 1rem;
+}
+
+.option {
+padding: 0.8rem;
+font-size: 0.9rem;
+}
+
+    .power-up-buttons {
+        flex-direction: row; /* Volta para row em telas pequenas */
+        flex-wrap: wrap; /* Permite quebrar linha */
+        justify-content: center;
+        margin-top: 10px;
+        gap: 8px; /* Reduz o gap */
+        max-width: none; /* Remove o limite de largura */
+    }
+
+    .power-up-btn {
+        flex-grow: 1; /* Permite que os botões cresçam */
+        font-size: 0.8em;
+        padding: 6px 10px;
+    }
+
+    .feedback {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
 }
