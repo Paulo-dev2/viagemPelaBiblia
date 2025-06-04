@@ -469,7 +469,6 @@ const App: React.FC = () => {
                         className="btn power-up-btn"
                         onClick={() => usePowerUp('doubleRoll')}
                         disabled={isRolling || powerUps[currentPlayerId].doubleRoll === 0 || powerUpInUse !== null}
-                        title="Lança o dado duas vezes e soma os valores."
                     >
                         🎲 Usar Dado Duplo ({powerUps[currentPlayerId].doubleRoll})
                     </button>
